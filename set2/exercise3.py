@@ -2,9 +2,17 @@
 """Modify each function until the tests pass."""
 
 
-def is_odd(a_number):
-    """Return True if a_number is odd, and False if a_number is even.
+from telnetlib import STATUS
+from numpy import true_divide
 
+
+def is_odd(a_number):
+    if a_number % 2 == 0:
+        result = False
+    else:
+        result = True
+        """Return True if a_number is odd, and False if a_number is even.
+    
     Look into modulo division using the '%' operator as one way of doing this.
 
     e.g. 4 % 2 = 0
@@ -13,10 +21,21 @@ def is_odd(a_number):
 
     So if a_number modulo two is zero, then it's even.
     """
-    return None
+    return result
 
 
 def fix_it(moves=True, should_move=True):
+    if moves == True:
+        if should_move == True:
+            status = "No Problem"
+        else:
+            status = "Duct Tape"
+    else:
+        if should_move == True:
+            status = "WD-40"
+        else:
+            status = "No Problem"
+
     """Decide what to do.
 
     Using the engineering flowchart (in week2 folder of the CODE1161-2019
@@ -31,7 +50,7 @@ def fix_it(moves=True, should_move=True):
     Most people write this function with 4 return statements.
     As an extra challenge, see if you can get that down to three.
     """
-    return None
+    return status
 
 
 def loops_preview():
