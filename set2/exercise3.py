@@ -67,13 +67,16 @@ def loops_preview():
 
 
 def loops_1a():
+    star_list = []
+    for i in range(10):
+        star_list.append("*")
     """Make 10 stars.
 
     Using a for loop
     return a list of 10 items, each one a string with exacly one star in it.
     E.g.: ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*']
     """
-    return None
+    return star_list
 
 
 def loops_1c(number_of_items=5, symbol="#"):
