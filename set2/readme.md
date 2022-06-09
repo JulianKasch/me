@@ -4,3 +4,4 @@
 4:23 The page also said that I could make whatever a_number from an integer or a float into a string. Then I can concatenate from there.
 4:29 since that didn't work I'll try and cocatenate a space in the middle.This ends exercise 0
 5:05 did exercise one, took me a bit to getting used to the debug tool, using breakpoints to stop the code where I want it before spamming step into to go through the code line by line
+5:17 debugged the file exercise2, was probably more self explanatory than the real bugs I'll run into...
