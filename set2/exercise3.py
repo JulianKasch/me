@@ -3,6 +3,7 @@
 
 
 from telnetlib import STATUS
+from turtle import st
 from numpy import true_divide
 
 
@@ -80,6 +81,9 @@ def loops_1a():
 
 
 def loops_1c(number_of_items=5, symbol="#"):
+    Any_list = []
+    for i in range(number_of_items):
+        Any_list.append(str(symbol))
     """Respond to variables.
 
     Return a list of number_of_items items, each one a
@@ -89,10 +93,16 @@ def loops_1c(number_of_items=5, symbol="#"):
     Remember that you're being passed arguments here. Don't hard code the number
     or the symbol, let it be whatever it wants to be.
     """
-    return None
+    return Any_list
 
 
 def loops_2():
+    star_list = []
+    for i in range(10):
+        star_list.append("*")
+    star_grid = []
+    for i in range(10):
+        star_grid.append(star_list)
     """Make a big square starfield.
 
     return a list of 10 items, each one a list of 10 items,
@@ -110,10 +120,14 @@ def loops_2():
             ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*'],
           ]
     """
-    return None
+    return star_grid
 
 
 def loops_3():
+    number_grid = []
+    for i in range(10):
+        number_grid.append([str(i)]*10)
+    
     """Make a rising block of numbers.
 
     Return this:
@@ -134,10 +148,16 @@ def loops_3():
     TIP: notice that this needs to to return strings of numbers,
          so call str(number) to cast.
     """
-    return None
+    return number_grid
 
 
 def loops_4():
+    number_list = []
+    number_grid = []
+    for i in range(10):
+        number_list.append(str(i))
+    for i in range(10):
+        number_grid.append(number_list)
     """Make a block of numbers that rises left to right.
 
     Return this:
@@ -154,10 +174,16 @@ def loops_4():
       ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     ]
     """
-    return None
+    return number_grid
 
 
 def loops_5():
+    coord_grid = []
+    for i in range(10):
+        coord_row = []
+        for j in range(5):
+            coord_row.append('(i' + str(i) + ', j' + str(j) + ')')
+        coord_grid.append(coord_row)
     """Make the coordinates of the block.
 
     Return this:
@@ -184,10 +210,17 @@ def loops_5():
         f"There are {num_bottles} green bottles"
     you'll come to see the pros and cons of each over time.
     """
-    return None
+    return coord_grid
 
 
 def loops_6():
+    wedge_grid = []
+    for i in range(10):
+        wedge_row = []
+        for k in range(i + 1):
+            wedge_row.append(str(k))
+        wedge_grid.append(wedge_row)
+
     """Make a wedge of numbers.
 
     Return this:
@@ -207,10 +240,18 @@ def loops_6():
     You can use a variable.
     TIP: look out for the starting condition.
     """
-    return None
+    return wedge_grid
 
 
 def loops_7():
+    pyramid_grid = []
+    for i in range(5):
+        pyramid_row = []
+        pyramid_row.extend([' ']*(4-i))
+        pyramid_row.extend(['*']*(2*i + 1))
+        pyramid_row.extend([' ']*(4-i))
+        pyramid_grid.append(pyramid_row)
+
     """Make a pyramid.
 
     Return this:
@@ -231,7 +272,7 @@ def loops_7():
     This is a hard problem. Use lots of experimentation and draw
     lots of diagrams!
     """
-    return None
+    return pyramid_grid
 
 
 def little_printer(some_kind_of_list, exercise_name):
