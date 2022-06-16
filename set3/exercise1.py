@@ -5,7 +5,14 @@ Modify each function until the tests pass.
 """
 
 
+from numpy import number, true_divide
+
+
 def loop_ranger(start, stop=None, step=1):
+    my_range = []
+    for i in range(start, stop, step):
+        my_range.append(i)
+
     """Return a list of numbers between start and stop in steps of step.
 
     Using a while loop make a list of numbers that goes from the start number up
@@ -17,10 +24,13 @@ def loop_ranger(start, stop=None, step=1):
     Look up for how range() works in the python docs. You could  answer this
     with just the range function, but we'd like you to do it the long way.
     """
-    return None
+    return my_range
 
 
 def two_step_ranger(start, stop):
+    my_range = []
+    for i in range(start, stop, 2):
+        my_range.append(i)
     """Make a range that steps by 2.
 
     Sometimes you want to hide complexity.
@@ -28,10 +38,15 @@ def two_step_ranger(start, stop):
 
     You can either reuse loop_ranger, or the range function that in the standard library
     """
-    return None
+    return my_range
 
 
 def stubborn_asker(low, high):
+    Number_good = False
+    while Number_good == False:
+        Given_number = int(input("Please enter a number: "))
+        if Given_number < high and Given_number > low:
+            Number_good = True
     """Ask for a number between low and high until actually given one.
 
     Ask for a number, and if the response is outside the bounds keep asking
@@ -39,26 +54,44 @@ def stubborn_asker(low, high):
 
     Look up the docs for a function called "input"
     """
-    return None
+    return Given_number
 
 
 def not_number_rejector(message):
+    Any_number = False
+    while Any_number == False:
+        try:
+            Given_number = int(input("Please enter a number: "))   
+        except:
+            continue
+        Any_number = True  
     """Ask for a number repeatedly until actually given one.
 
     Ask for a number, and if the response is actually NOT a number
     (e.g. "cow", "six", "8!") then throw it out and ask for an actual number.
     When you do get a number, return it.
     """
-    return None
+    return Given_number
 
 
 def super_asker(low, high):
+    Number_good = False
+    while Number_good == False:
+        Any_number = False
+        while Any_number == False:
+            try:
+                Given_number = int(input("Please enter a number: "))   
+            except:
+                continue
+            Any_number = True
+        if Given_number < high and Given_number > low:
+            Number_good = True
     """Robust asking function.
 
     Combine what you learnt from stubborn_asker and not_number_rejector
     to make a function that does it all!
     """
-    return None
+    return Given_number
 
 
 if __name__ == "__main__":
