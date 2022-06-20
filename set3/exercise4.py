@@ -3,8 +3,30 @@
 
 import math
 
+from numpy import array
+
 
 def binary_search(low, high, actual_number):
+    tries = 0
+    guess = int((low+high)/2)
+    tries = tries + 1
+    print(f"The guess is {guess}")
+    while guess != actual_number:
+        if guess < actual_number:
+            low = guess
+            guess = int((low+high)/2)
+            tries = tries + 1
+            print(f"The guess is {guess}")
+            continue
+        if guess > actual_number:
+            high = guess
+            guess = int((low+high)/2)
+            tries = tries + 1
+            print(f"The guess is {guess}")
+            continue
+    
+        
+
     """Do a binary search.
 
     This is going to be your first 'algorithm' in the usual sense of the word!
@@ -21,8 +43,6 @@ def binary_search(low, high, actual_number):
     Use the VS Code debugging tools a lot here. It'll make understanding
     things much easier.
     """
-    tries = 0
-    guess = 0
 
     # Write your code in here
 
