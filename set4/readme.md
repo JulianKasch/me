@@ -1,1 +1,3 @@
 TODO: Reflect on what you learned this week and what is still unclear.
+Dataset ideas: https://data.gov.au/dataset/ds-sdinsw-%7BA3D1D499-6164-493D-95E7-4096056F5C3B%7D/details?q=NSW%20traffic%20control
+I really wanted a data set that has speedbump locations on it, and this one should cover that, it's just that it's last updated 2015, maybe I can find something that contains what I want more recently updated...
