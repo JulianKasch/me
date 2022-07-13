@@ -38,9 +38,11 @@ def get_some_details():
          dictionaries.
     """
     json_data = open(LOCAL + "/lazyduck.json").read()
-
     data = json.loads(json_data)
-    return {"lastName": None, "password": None, "postcodePlusID": None}
+    lastname = data['results'][0]['name']['last']
+    password = data['results'][0]['login']['password']
+    postcode_plus_ID = data['results'][0]['location']['postcode'] + int(data['results'][0]['id']['value'])
+    return {"lastName": lastname, "password": password, "postcodePlusID": postcode_plus_ID}
 
 
 def wordy_pyramid():
@@ -78,6 +80,14 @@ def wordy_pyramid():
     TIP: to add an argument to a URL, use: ?argName=argVal e.g. &wordlength=
     """
     pyramid = []
+    url = "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength="
+    for i in range(9):
+        r = requests.get(url + str(2*i+3))
+        pyramid.append(r.text)
+    for i in range(9):
+        r = requests.get(url + str(-2*i+20))
+        pyramid.append(r.text)
+
 
     return pyramid
 
@@ -96,13 +106,23 @@ def pokedex(low=1, high=5):
          get very long. If you are accessing a thing often, assign it to a
          variable and then future access will be easier.
     """
-    id = 5
-    url = f"https://pokeapi.co/api/v2/pokemon/{id}"
+    height_storage = 0
+    ID_storage = 0
+    for i in range(low,high):
+        id = i
+        url = f"https://pokeapi.co/api/v2/pokemon/{id}"
+        r = requests.get(url)
+        if r.status_code is 200:
+            the_json = json.loads(r.text)
+        if the_json['height'] > height_storage:
+            height_storage = the_json['height']
+            ID_storage = the_json['id']
+    url = f"https://pokeapi.co/api/v2/pokemon/{ID_storage}"
     r = requests.get(url)
     if r.status_code is 200:
         the_json = json.loads(r.text)
-
-    return {"name": None, "weight": None, "height": None}
+    
+    return {"name": the_json['name'], "weight": the_json['weight'], "height": the_json['height']}
 
 
 def diarist():
@@ -122,6 +142,16 @@ def diarist():
 
     NOTE: this function doesn't return anything. It has the _side effect_ of modifying the file system
     """
+    pew_count = 0
+    mode = "r"  # from the docs
+    history_log = open("set4\Trispokedovetiles(laser).gcode", mode)
+    response = history_log.read()
+    pew_count = str(response.count("M10 P1"))
+    history_log.close()
+    mode = "w"  # from the docs
+    new_file = open("set4\lasers.pew", mode)
+    new_file.write(pew_count)
+    new_file.close()
     pass
 
 
