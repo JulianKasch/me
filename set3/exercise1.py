@@ -61,7 +61,7 @@ def not_number_rejector(message):
     Any_number = False
     while Any_number == False:
         try:
-            Given_number = int(input("Please enter a number: "))   
+            Given_number = int(input(f"{message}: "))   
         except:
             continue
         Any_number = True  
