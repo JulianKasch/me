@@ -264,14 +264,32 @@ def fast_filler(number_of_words=200) -> str:
     it'll convert integer keys to strings.
     If you get this one to work, you are a Very Good Programmer™!
     """
-    if os.path.exists(/set8)
+    contents_already_done=""
+    file_path = "set8/dict_cache.json"
+    if os.path.exists(file_path):
+        mode = "r"
+        time_capsule = open(file_path, mode)
+        my_dict = json.load(time_capsule)
+        time_capsule.close()
+    else:
+        returned_dict= make_filler_text_dictionary()
+        json.dump(returned_dict, file_path)
+        my_dict = json.load(file_path)
+   
+    words = []
+    for num in range(number_of_words):
+        word_storage=my_dict[str(random.randint(3, 7))][random.randint(0, 3)]
+        words.append(word_storage)
+            
+    return " ".join(words)
 
-    returned_dict= make_filler_text_dictionary()
+
+    
 
     fname = "dict_cache.json"
 
 
-    return None
+    return contents_already_done
 
 
 if __name__ == "__main__":
