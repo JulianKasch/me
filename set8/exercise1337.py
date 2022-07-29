@@ -281,7 +281,7 @@ def fast_filler(number_of_words=200) -> str:
         word_storage=my_dict[str(random.randint(3, 7))][random.randint(0, 3)]
         words.append(word_storage)
             
-    return " ".join(words)+"."
+    return str.capitalize(" ".join(words)+".")
 
 
     
