@@ -1,1 +1,2 @@
 TODO: Reflect on what you learned this week and what is still unclear.
+In retrospect the quiz wasn't hard but I was a bit disappointed in my inability to do the IO parts properly without help, also I needed to pay more attention to what the in built tests were doing.
